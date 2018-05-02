@@ -1,86 +1,141 @@
 /* CSS reset */
-html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,h1,h2,h3,h4,h5,h6,p,ul{margin:0;padding:0}
+
+html {
+    box-sizing: border-box
+}
+
+*,
+:after,
+:before {
+    box-sizing: inherit
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+    margin: 0;
+    padding: 0
+}
+
 /* Fonts (Roboto, Rambla) */
 @import url('https://fonts.googleapis.com/css?family=Rambla:700|Roboto');
-/* Body background */
-body {
 
-}
+/* Responsive navigation */
 header {
-
+    position: relative;
+    background-color: #010101;
+    overflow: hidden;
+    min-width: 21.875em;
 }
-nav {
 
+.logo {
+    float: left;
+    margin: .80em 0 .80em .80em;
 }
-nav ul {
 
+#menu-toggle {
+    display: block;
+    float: right;
+    color: white;
+    text-decoration: none;
+    padding: .75em;
 }
-nav li {
 
+ul {
+    clear: left;
+    list-style-type: none;
+    color: white;
+    padding-left: 0;
+    margin-bottom: 0;
 }
-nav li a {
 
+#toggled {
+    display: none;
 }
-nav li a:hover {
 
+li {
+    padding: 1em 0 1em 1.4em;
+    margin-right: 3em;
 }
-main {
-
+li:hover {
+    color: 6c5ce7;
+    border-bottom: 4px solid #0984e3;
 }
-.container {
 
+.active {
+    border-bottom: 4px solid #6c5ce7;
 }
-.banner {
 
+/* Banner layout */
+.banner h1, .banner p {
+  margin: 0;
+  text-shadow: 2px 2px 6px #000;
+  text-align: center;
 }
 .banner h1 {
-
+    font-family: 'Rambla', sans-serif;
+    font-weight: bold;
 }
 .banner p {
-
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 .banner button {
-
+    margin: 0 auto;
+    display: inline-block;
+    color: #fff;
+    font-family: 'Rambla', sans-serif;
+    font-weight: bold;
+    background-color: #0984e3;
+    border: none;
+    border-bottom: 3px solid #095d9e;
+    padding: 10px;
+    width: 167px;
+    box-shadow: 2px 2px 6px #000;
 }
 .banner button:hover {
-
+    background-color: #095d9e;
 }
-.info-boxes {
 
+.banner {
+  color: white;
+  background: url('../img/banner_bg.jpg') top left/cover no-repeat;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.info-boxes h2 {
 
+/* Three column grid displaying the purpose of the website */
+.info-grid {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 30px;
 }
-.info-boxes p {
 
-}
-.register {
+/* Media queries for tablets and phones etc */
 
-}
-.register h2 {
-
-}
-.register p {
-
-}
-.regsiter ul {
-
-}
-.register li {
-
-}
-.register form {
-
-}
-.register button {
-
-}
-footer {
-
-}
-footer ul {
-
-}
-footer li {
+@media screen and (min-width: 41.25em) {
+    #menu-toggle {
+        display: none;
+    }
+    nav {
+        float: right;
+    }
+    ul {
+        display: block !important;
+    }
+    li {
+        float: left;
+        padding: 1em;
+        border-top: none;
+    }
 
 }

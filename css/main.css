@@ -1,0 +1,86 @@
+/* CSS reset */
+html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,h1,h2,h3,h4,h5,h6,p,ul{margin:0;padding:0}
+/* Fonts (Roboto, Rambla) */
+@import url('https://fonts.googleapis.com/css?family=Rambla:700|Roboto');
+/* Body background */
+body {
+
+}
+header {
+
+}
+nav {
+
+}
+nav ul {
+
+}
+nav li {
+
+}
+nav li a {
+
+}
+nav li a:hover {
+
+}
+main {
+
+}
+.container {
+
+}
+.banner {
+
+}
+.banner h1 {
+
+}
+.banner p {
+
+}
+.banner button {
+
+}
+.banner button:hover {
+
+}
+.info-boxes {
+
+}
+.info-boxes h2 {
+
+}
+.info-boxes p {
+
+}
+.register {
+
+}
+.register h2 {
+
+}
+.register p {
+
+}
+.regsiter ul {
+
+}
+.register li {
+
+}
+.register form {
+
+}
+.register button {
+
+}
+footer {
+
+}
+footer ul {
+
+}
+footer li {
+
+}

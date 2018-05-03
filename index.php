@@ -6,6 +6,7 @@
     <title>Home | TaskBee</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="app/resources/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 </head>
@@ -18,9 +19,11 @@
             <a href="#" id="menu-toggle">&#9776</a>
             <ul id="toggled">
                 <li class="active">Home</li>
-                <li>FAQ</li>
-                <li>Projects</li>
-                <li>Login <i class="fas fa-lock"></i></li>
+                <li><a href="frequently-asked-questions.php">FAQ</a></li>
+                <li><a href="projects.php">Projects</a></li>
+                <?php
+                echo "<li><a href=\"#myModal\" class=\"trigger-btn\" data-toggle=\"modal\">Login <i class=\"fas fa-lock\"></i></a></li>";
+                ?>
             </ul>
         </nav>
     </header>
@@ -36,7 +39,7 @@
             </div>
         </div>
 
-        <div class="info-grid">
+        <div class="threeC-grid">
             <div>
                 <i class="fas fa-share-alt fa-5x"></i>
                 <h2>Sharing is caring</h2>
@@ -79,8 +82,48 @@
                     <option value="Web development">Web development</option>
                     <option value="Other">Other</option>
                 </select><br>
-                <button>Create account</button>
+                <button class="blueBtn" name="create">Create account</button>
             </form>
+            <?php
+                // Open a connection to the database
+                $conn = new mysqli($hostname, $user, $password, $database);
+
+                // Display an error if the connection did not work
+                if ($conn->connect_error) {
+                die("<p>An error occurred: " . $conn->connect_error . "</p>");
+                }
+
+                // Fetch data from inputs and clear unwanted characters
+                if (isset($_POST["create"])){
+                    $usr = filter_input(INPUT_POST, "usr", FILTER_SANITIZE_STRING);
+                    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_STRING);
+                    $pswrd = filter_input(INPUT_POST, "pswrd", FILTER_SANITIZE_STRING);
+                    $usr = filter_input(INPUT_POST, "usr", FILTER_SANITIZE_STRING);
+
+                    // Collect data and insert into database
+                    if ($usr && $email && $pswrd){
+                        $hash = password_hash($pswrd, PASSWORD_DEFAULT);
+
+                        // SQL to create new user in the table tb_users
+                        $sql = "INSERT INTO tb_users
+                        (username, email, password) VALUES
+                        ('$usr', '$email', '$pswrd')";
+
+                        $result = $conn->query($sql);
+
+                        // Send error message if SQL failed
+                        if (!$result) {
+                        die("<p>An error ocdcurred</p>");
+                        } else {
+                        $_SESSION["loggedin"] = true;
+                        $_SESSION["usr"] = $usr;
+                        }
+
+                        $conn->close();
+                    }
+                }
+
+            ?>
         </div>
     </main>
 
@@ -108,6 +151,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <script src="js/menu.js"></script>
 
+    <?php
+        include "app/conf/conf_db.php";
+    ?>
 </body>
 
 </html>

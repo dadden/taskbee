@@ -10,6 +10,8 @@
 */
 ?>
 <?php
-
-
+    $hostname = "localhost";
+    $user = "taskadmin";
+    $password = "R8wv7URDoljcykeF";
+    $database = "taskbee";
 ?>

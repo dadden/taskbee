@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <p>Content here</p>
+
     </main>
 
     <footer>

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="app/resources/bootstrap.min.css">
+    <link rel="stylesheet" href="app/resources/mdb.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 </head>
 
@@ -28,128 +29,144 @@
         </nav>
     </header>
 
-    <main>
-        <div class="banner">
-            <div class="banner-text">
-                <h1>Your #1 source for creative inspiration</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    <br> Curabitur aliquet dui id magna condimentum, et auctor
-                    <br> diam faucibus. Etiam in nisl id ante tincidunt tristique ut sit amet neque.</p>
-                <button>Find out more</button>
+    <div class="container-fluid">
+        <main>
+            <div class="banner">
+                <div class="banner-text">
+                    <h1>Your #1 source for creative inspiration</h1>
+                    <h5>Revolutionary? Maybe not, but you are sure to enjoy you stay. Don't have the budget<br> to create your own portfolio or do you simply want to expand your digital footprint?<br></h5>
+                    <button type="button" class="btn btn-primary"><a href="#create-account">Become a member today!</a></button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <i class="fas fa-share-alt fa-5x"></i>
+                    <h2>Sharing is caring</h2>
+                    <p>Maybe you struck lightning with your new creation, so why not share it with others? You are still the rightful owner of your own work.</p>
+                </div>
+                <div class="col-sm">
+                    <i class="far fa-lightbulb fa-5x"></i>
+                    <h2>Find inspiration</h2>
+                    <p>Are you stuck somewhere in the creative process? Find out what others did to solve the problem you are facing!</p>
+                </div>
+                <div class="col-sm">
+                    <i class="fas fa-cloud-download-alt fa-5x"></i>
+                    <h2>Gather resources</h2>
+                    <p>Every project that is public and also open source is
+                        <br>downlodable - meaning you are free to dive into other members solutions</p>
+                </div>
+            </div>
+            <div class="register row">
+                <div class="col">
+                    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="http://placehold.it/800x400?auto=yes&bg=777&fg=555&text=First slide" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="http://placehold.it/800x400?auto=yes&bg=666&fg=444&text=Second slide" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="http://placehold.it/800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="Third slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col" id="create-account">
+                    <h2>Create your account today!</h2>
+                    <form method="post">
+                        <label for="usr">Username</label>
+                        <br>
+                        <input class="form-control" type="text" id="usr" name="usr">
+                        <label for="email">E-mail address</label>
+                        <br>
+                        <input class="form-control" type="email" id="email" name="email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <label for="pswrd">Password</label>
+                        <input class="form-control" type="password" id="pswrd" name="pswrd">
+                        <small id="pswrdHelp" class="form-text text-muted">Choose a strong password (Min. 7 characters, 1 number)</small>
+                        <label for="rpswrd">Repeat Password</label>
+                        <input class="form-control" type="password" id="rpswrd">
+                        <label>What is your main point of interest?</label>
+                        <select class="form-control">
+                            <option value="Choose" selected disabled>Choose one from the list</option>
+                            <option value="Art">Art</option>
+                            <option value="Digital design">Digital design</option>
+                            <option value="Photography">Photography</option>
+                            <option value="Game development">Game development</option>
+                            <option value="Game design">Game design</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Web design">Web design</option>
+                            <option value="Web development">Web development</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <br>
+                        <button class="blueBtn" name="create">Create account</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="page-footer font-small blue pt-4 mt-4">
+
+        <!--Footer Links-->
+        <div class="container-fluid text-center text-md-left">
+            <div class="row">
+
+                <!--First column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase">Footer Content</h5>
+                    <p>Here you can use rows and columns here to organize your footer content.</p>
+                </div>
+                <!--/.First column-->
+
+                <!--Second column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase">Links</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 3</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 4</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.Second column-->
             </div>
         </div>
+        <!--/.Footer Links-->
 
-        <div class="threeC-grid">
-            <div>
-                <i class="fas fa-share-alt fa-5x"></i>
-                <h2>Sharing is caring</h2>
-                <p>Maybe you struck lightning with your new creation, so why not share it with others? You are still the rightful owner of your own work.</p>
-            </div>
-            <div>
-                <i class="far fa-lightbulb fa-5x"></i>
-                <h2>Find inspiration</h2>
-                <p>Are you stuck somewhere in the creative process? Find out what others did to solve the problem you are facing!</p>
-            </div>
-            <div>
-                <i class="fas fa-cloud-download-alt fa-5x"></i>
-                <h2>Gather resources</h2>
-                <p>Every project that is public and also open source is
-                    <br>downlodable - meaning you are free to dive into other members solutions</p>
-            </div>
+        <!--Copyright-->
+        <div class="footer-copyright py-3 text-center">
+            © 2018 Copyright:
+            <a href="#"> David Mohlén </a>
         </div>
-        <div class="register">
-            <form method="post">
-                <label for="usr">Username</label><br>
-                <input class="form-control" type="text" id="usr" name="usr">
-                <label for="email">E-mail address</label><br>
-                <input class="form-control" type="email" id="email" name="email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                <label for="pswrd">Password</label>
-                <input class="form-control" type="password" id="pswrd" name="pswrd">
-                <small id="pswrdHelp" class="form-text text-muted">Choose a strong password (Min. 7 characters, 1 number)</small>
-                <label for="rpswrd">Repeat Password</label>
-                <input class="form-control" type="password" id="rpswrd">
-                <label>What is your main point of interest?</label>
-                <select class="form-control">
-                    <option value="Choose" selected disabled>Choose one from the list</option>
-                    <option value="Art">Art</option>
-                    <option value="Digital design">Digital design</option>
-                    <option value="Photography">Photography</option>
-                    <option value="Game development">Game development</option>
-                    <option value="Game design">Game design</option>
-                    <option value="Programming">Programming</option>
-                    <option value="Web design">Web design</option>
-                    <option value="Web development">Web development</option>
-                    <option value="Other">Other</option>
-                </select><br>
-                <button class="blueBtn" name="create">Create account</button>
-            </form>
-            <?php
-                // Open a connection to the database
-                $conn = new mysqli($hostname, $user, $password, $database);
+        <!--/.Copyright-->
 
-                // Display an error if the connection did not work
-                if ($conn->connect_error) {
-                die("<p>An error occurred: " . $conn->connect_error . "</p>");
-                }
-
-                // Fetch data from inputs and clear unwanted characters
-                if (isset($_POST["create"])){
-                    $usr = filter_input(INPUT_POST, "usr", FILTER_SANITIZE_STRING);
-                    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_STRING);
-                    $pswrd = filter_input(INPUT_POST, "pswrd", FILTER_SANITIZE_STRING);
-                    $usr = filter_input(INPUT_POST, "usr", FILTER_SANITIZE_STRING);
-
-                    // Collect data and insert into database
-                    if ($usr && $email && $pswrd){
-                        $hash = password_hash($pswrd, PASSWORD_DEFAULT);
-
-                        // SQL to create new user in the table tb_users
-                        $sql = "INSERT INTO tb_users
-                        (username, email, password) VALUES
-                        ('$usr', '$email', '$pswrd')";
-
-                        $result = $conn->query($sql);
-
-                        // Send error message if SQL failed
-                        if (!$result) {
-                        die("<p>An error ocdcurred</p>");
-                        } else {
-                        $_SESSION["loggedin"] = true;
-                        $_SESSION["usr"] = $usr;
-                        }
-
-                        $conn->close();
-                    }
-                }
-
-            ?>
-        </div>
-    </main>
-
-    <footer>
-        <div>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Create account</a></li>
-        </ul>
-        </div>
-        <div>
-            <ul>
-                <li><a href="#"><img src="img/logo_small.png" alt="TaskBee logo"></a></li>
-                <li><a href="#">Back to top</a></li>
-            </ul>
-        </div>
     </footer>
 
-    <!-- Bootstrap, JQuery, Popper -->
+    <!-- Bootstrap, JQuery, Popper, MD -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <script src="js/menu.js"></script>
+    <script src="app/resources/mdb.min.js"></script>
 
     <?php
         include "app/conf/conf_db.php";

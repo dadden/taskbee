@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+<div class="container-fluid">
     <header>
         <a href="index.php"><img src="img/logo.png" alt="TaskBee logo" class="logo"></a>
         <nav>
@@ -25,6 +25,7 @@
         </nav>
     </header>
 
+    <div class="container-fluid">
     <main>
         <div class="subpage-banner">
             <div class="banner-text">
@@ -33,23 +34,37 @@
         </div>
 
         <div class="threeC-grid">
-            <div class="project">
-                <h5>Project Name</h5>
-                <p>Category by Username</p>
-            </div>
-            <div class="project">
-                <h5>Project Name</h5>
-                <p>Category by Username</p>
-            </div>
-            <div class="project">
-                <h5>Project Name</h5>
-                <p>Category by Username</p>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="http://placehold.it/300x300" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Project Name</h5>
+                <p class="card-text">Webdesign by <em>Username</em></p>
+                <a href="#" class="btn btn-primary">More info</a>
             </div>
         </div>
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="http://placehold.it/300x300" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Project Name</h5>
+                <p class="card-text">Webdesign by <em>Username</em></p>
+                <a href="#" class="btn btn-primary">More info</a>
+            </div>
+        </div>
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="http://placehold.it/300x300" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Project Name</h5>
+                <p class="card-text">Webdesign by <em>Username</em></p>
+                <a href="#" class="btn btn-primary">More info</a>
+            </div>
+        </div>
+        </div>
+
 
         <button class="blueBtn">Load more...</button>
     </main>
-
+        </div>
+    </div>
     <footer>
         <div>
             <ul>

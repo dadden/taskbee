@@ -59,17 +59,31 @@
             </div>
 
             <!-- Three columns displaying user created projects -->
-            <div class="pr-projects">
-                <div class="row">
-                    <div class="col-md-4">
+            <div class="new-project">
 
+                        <form method="post" action="new_project.php">
+                            <label for="name" class="grey-text">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                            <label for="desc" class="grey-text">Description</label>
+                            <textarea id="desc" name="desc" rows="4" class="form-control"></textarea>
+                            <small class="form-text text-muted">Tip: Keep it relatively short and straight forward</small>
+                            <label for="thumbnail" class="grey-text">Upload a thumbnail</label>
+                            <input type="file" id="thumbnail" name="thumb">
+                            <small class="form-text text-muted">Maximum 1MB and 300x300px</small>
+                            <label for="image" class="grey-text">Upload images</label>
+                            <input type="file" id="image" name="image">
+                            <small class="form-text text-muted">Maximum 1MB and 1920x1080px</small>
+                            <label for="zip" class="grey-text">Upload project files</label>
+                            <input type="file" id="zip" name="zip">
+                            <small class="form-text text-muted">Maximum 500MB. Supported file types are .zip, .rar</small>
+                            <label for="visibility" class="grey-text">This project is</label>
+                            <select class="form-control" id="visibility">
+                                <option value="1">Public (Default)</option>
+                                <option value="0">Private</option>
+
+                            </select>
+                        </form>
                     </div>
-                    <div class="col-md-4">
-
-                    </div>
-
-                </div>
-            </div>
 
 
         </main>

@@ -27,8 +27,8 @@ session_start();
                     <li><a href="projects.php">Projects</a></li>
                     <?php
                     if (isset($_SESSION["user"])){
-                        echo "<li><a href=\"profile.php\">Profile <i class=\"fas fa-angle-right\"></i></a></li>";
-                        echo "<li><a href=\"index.php?logout=1\">Logout <i class=\"fas fa-sign-out-alt\"></i></a></li>";
+                        echo "<li><a href=\"profile.php\">Profile <i class=\"fas fa-user\"></i></a></li>";
+                        echo "<li><a href=\"app/logout.php\">Logout <i class=\"fas fa-sign-out-alt\"></i></a></li>";
                     } else {
                         echo "<li><a href=\"login.php\">Login <i class=\"fas fa-lock\"></i></a></li>";
                     }

@@ -21,7 +21,15 @@
                     <li class="active">Home</li>
                     <li><a href="frequently-asked-questions.php">FAQ</a></li>
                     <li><a href="projects.php">Projects</a></li>
-                    <li><a href="login.php">Login <i class="fas fa-lock"></i></a></li>
+                    <?php
+                    if (isset($_SESSION["user"])){
+                        echo "<li><a href=\"profile.php\">Profile <i class=\"fas fa-user\"></i></a></li>";
+                        echo "<li><a href=\"app/logout.php\">Logout <i class=\"fas fa-sign-out-alt\"></i></a></li>";
+                    } else {
+                        echo "<li><a href=\"login.php\">Login <i class=\"fas fa-lock\"></i></a></li>";
+                    }
+
+                    ?>
                 </ul>
             </nav>
         </header>
@@ -33,16 +41,7 @@
                 </div>
             </div>
 
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Sort by: Latest
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Latest</a>
-                    <a class="dropdown-item" href="#">Rating</a>
-                    <a class="dropdown-item" href="#">Downloads</a>
-                </div>
-            </div>
+
             <!-- Three columns displaying website features -->
             <div class="features">
                 <div class="row">

@@ -57,71 +57,70 @@
                     </div>
                 </div>
 
-                <!-- Three columns displaying user created projects -->
+                <!-- Table displaying user created projects -->
+                <?php
+
+                include "app/conf/conf_db.php";
+
+                /* Connect to the database */
+                $conn = new mysqli($hostname, $user, $password, $database);
+
+                /* Display an error if connection failed */
+                if ($conn->connect_error) {
+                    die("<p>An error occurred: " . $conn->connect_error . "</p>");
+                }
+
+                // Search the table tb_projects for projects linked to the user
+                $sql = "SELECT * FROM tb_projects WHERE user = '{$_SESSION["user"]}'";
+
+                // Run SQL
+                $query = mysqli_query($conn, $sql);
+
+                // Display an error if SQL failed
+                if (!$query) {
+	               die ('SQL Error: ' . mysqli_error($conn));
+                }
+
+                ?>
                 <div class="pr-projects">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Preview</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Rating</th>
+                                <th scope="col">View</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
 
-                                <!-- Card image -->
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+                            while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
 
-                                <!-- Card content -->
-                                <div class="card-body">
+                                // Print table
+                                echo '<tr>
+                                <td><img src="uploads/'.$row['thumb'].'"></td>
+                                <td>'.$row['name'].'</td>
+                                <td>'.$row['description'].'</td>
+                                <td>0</td>
+                                <td><button class="btn-table">View</button></td>
+                                </tr>';
 
-                                    <!-- Title -->
-                                    <h4 class="card-title"><a>Card title</a></h4>
-                                    <!-- Text -->
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-primary">Button</a>
 
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <!-- Title -->
-                                    <h4 class="card-title"><a>Card title</a></h4>
-                                    <!-- Text -->
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-primary">Button</a>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <!-- Title -->
-                                    <h4 class="card-title"><a>Card title</a></h4>
-                                    <!-- Text -->
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-primary">Button</a>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
+                            }
+                            // Shut down connection
+                            $conn->close();
+                            ?>
+                            <!--<tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td><button class="btn-standard">View</button></td>
+                            </tr>-->
+                        </tbody>
+                    </table>
                 </div>
 
 

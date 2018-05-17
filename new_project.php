@@ -60,6 +60,9 @@
                         <label for="desc" class="grey-text">Description</label>
                         <textarea id="desc" name="desc" rows="4" class="form-control"></textarea>
                         <small class="form-text text-muted">Tip: Keep it relatively short and straight forward</small>
+                        <label for="thumb" class="grey-text">Upload a thumbnail</label>
+                        <input type="file" id="thumb" name="thumb">
+                        <small class="form-text text-muted">Maximum 1MB and 250x250px</small>
                         <label for="image" class="grey-text">Upload images</label>
                         <input type="file" id="image" name="image">
                         <small class="form-text text-muted">Maximum 1MB and 1920x1080px</small>

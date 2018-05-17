@@ -78,6 +78,44 @@ if (isset($_POST["new-project"])) {
         }
     }
 
+        if (isset($_FILES["thumb"])) {
+        $tfile        = $_FILES['thumb'];
+        $tfileName    = $tfile['name'];
+        $tfileTmpName = $tfile['tmp_name'];
+        $tfileSize    = $tfile['size'];
+        $tfileError   = $tfile['error'];
+        $tfileType    = $tfile['type'];
+
+        $tfileExt       = explode('.', $tfileName);
+        $tfileActualExt = strtolower(end($tfileExt));
+
+        $tallowed = array(
+            'jpg',
+            'png'
+        );
+
+        if (in_array($tfileActualExt, $tallowed)) {
+            if ($tfileError === 0) {
+                if ($tfileSize < 15000000) {
+                    $tfileNameNew     = uniqid('', true) . "." . $tfileActualExt;
+                    $tfileDestination = '../uploads/' . $tfileNameNew;
+                    move_uploaded_file($tfileTmpName, $tfileDestination);
+                    echo "<p>Project successfully uploaded. Redirecting to profile...</p>";
+                    header("Refresh:2;url=../profile.php");
+                } else {
+                    echo "<p>File file size for your thumbnail is too big. $tfileSize (Maximum 1MB)</p>";
+                    header("Refresh:2;url=../profile.php");
+                }
+            } else {
+                echo "<p>There was an error while uploading the file. $tfileError</p>";
+                header("Refresh:2;url=../profile.php");
+            }
+        } else {
+            echo "<p>You cannot upload files of this type! $tfileActualExt</p>";
+            header("Refresh:2;url=../profile.php");
+        }
+    }
+
         if (isset($_FILES["zip"])) {
         $pfile        = $_FILES['zip'];
         $pfileName    = $pfile['name'];
@@ -116,11 +154,6 @@ if (isset($_POST["new-project"])) {
         }
     }
 
-
-
-
-    echo $pfileDestination;
-
     // Process data from inputs and sanitize unwanted characters
     $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
     $desc = filter_input(INPUT_POST, "desc", FILTER_SANITIZE_STRING);
@@ -128,7 +161,7 @@ if (isset($_POST["new-project"])) {
 
     // Check for input data and execute in database
     if ($user && $name && $desc){
-        $sql = "INSERT INTO tb_projects (user, name, description, image, zip) VALUES ('$user', '$name', '$desc', '$fileDestination', '$pfileDestination')";
+        $sql = "INSERT INTO tb_projects (user, name, description, thumb, image, zip) VALUES ('$user', '$name', '$desc', '$tfileDestination', '$fileDestination', '$pfileDestination')";
         echo $sql;
         // Run SQL
         $result = $conn->query($sql);

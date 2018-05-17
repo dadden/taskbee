@@ -235,6 +235,20 @@ header .active {
     background-color: #3498db;
     border-bottom: 5px solid #2980b9;
 }
+.btn-table {
+    height: 45px;
+    width: 45px;
+    padding: 5px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    transition: border-radius 0.05s linear;
+    background-color: #9b59b6;
+}
+.btn-table:hover {
+    transition-delay: 0.05s;
+    border-radius: 30px;
+}
 .pr-projects {
     max-width: 500px;
     max-height: 800px;

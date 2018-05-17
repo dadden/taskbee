@@ -78,70 +78,71 @@ if (isset($_POST["new-project"])) {
         }
     }
 
-    if (isset($_POST["zip"])) {
         if (isset($_FILES["zip"])) {
-        $file        = $_FILES['zip'];
-        $fileName    = $file['name'];
-        $fileTmpName = $file['tmp_name'];
-        $fileSize    = $file['size'];
-        $fileError   = $file['error'];
-        $fileType    = $file['type'];
+        $pfile        = $_FILES['zip'];
+        $pfileName    = $pfile['name'];
+        $pfileTmpName = $pfile['tmp_name'];
+        $pfileSize    = $pfile['size'];
+        $pfileError   = $pfile['error'];
+        $pfileType    = $pfile['type'];
 
-        $fileExt       = explode('.', $fileName);
-        $fileActualExt = strtolower(end($fileExt));
+        $pfileExt       = explode('.', $pfileName);
+        $pfileActualExt = strtolower(end($pfileExt));
 
-        $allowed = array(
+        $pallowed = array(
             'zip',
             'rar'
         );
 
-        if (in_array($fileActualExt, $allowed)) {
-            if ($fileError === 0) {
-                if ($fileSize < 15000000) {
-                    $fileNameNew     = uniqid('', true) . "." . $fileActualExt;
-                    $fileDestination = '../uploads/' . $fileNameNew;
-                    move_uploaded_file($fileTmpName, $fileDestination);
+        if (in_array($pfileActualExt, $pallowed)) {
+            if ($pfileError === 0) {
+                if ($pfileSize < 15000000) {
+                    $pfileNameNew     = uniqid('', true) . "." . $pfileActualExt;
+                    $pfileDestination = '../uploads/' . $pfileNameNew;
+                    move_uploaded_file($pfileTmpName, $pfileDestination);
                     echo "<p>Project successfully uploaded. Redirecting to profile...</p>";
                     header("Refresh:2;url=../profile.php");
                 } else {
-                    echo "<p>File file size for your project is too big. $fileSize (Maximum 15MB)</p>";
+                    echo "<p>File file size for your project is too big. $pfileSize (Maximum 15MB)</p>";
                     header("Refresh:2;url=../profile.php");
                 }
             } else {
-                echo "<p>There was an error while uploading the file. $fileError</p>";
+                echo "<p>There was an error while uploading the file. $pfileError</p>";
                 header("Refresh:2;url=../profile.php");
             }
         } else {
-            echo "<p>You cannot upload files of this type! $fileActualExt</p>";
+            echo "<p>You cannot upload files of this type! $pfileActualExt</p>";
             header("Refresh:2;url=../profile.php");
         }
     }
 
 
-    }
+
+
+    echo $pfileDestination;
 
     // Process data from inputs and sanitize unwanted characters
     $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
     $desc = filter_input(INPUT_POST, "desc", FILTER_SANITIZE_STRING);
     $user = filter_input(INPUT_POST, "user", FILTER_SANITIZE_STRING);
-    $fileDestination = filter_input(INPUT_POST, "")
 
     // Check for input data and execute in database
-    if ($name && $desc && $user){
-        $sql = "INSERT INTO tb_projects (user, name, description, image, zip) VALUES ('$user', '$name', '$desc')";
+    if ($user && $name && $desc){
+        $sql = "INSERT INTO tb_projects (user, name, description, image, zip) VALUES ('$user', '$name', '$desc', '$fileDestination', '$pfileDestination')";
+        echo $sql;
         // Run SQL
         $result = $conn->query($sql);
         //Display an error if SQL failed
-        if (!result) {
+        if (!$result) {
             die("<p>An error occurred</p>");
         }
-
         // Shut down connection
         $conn->close();
         echo "<p>Project uploaded successfully. Redirecting to profile...</p>";
-    }
 
 
+
+}
 }
 
 ?>

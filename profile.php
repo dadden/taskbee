@@ -48,23 +48,77 @@
                         ?></h1>
                     </div>
                     <div class="banner-btns-square">
-                        <a href="profile_settings.php"><button class="btn-square" id="settings"><i class="fas fa-cog"></i></button></a>
-                        <a href="new_project.php"><button class="btn-square" id="new"><i class="fas fa-plus"></i></button></a>
+                        <a href="profile_settings.php">
+                            <button class="btn-square" id="settings"><i class="fas fa-cog"></i></button>
+                        </a>
+                        <a href="new_project.php">
+                            <button class="btn-square" id="new"><i class="fas fa-plus"></i></button>
+                        </a>
                     </div>
-                </div>
-
-                <div class="projects">
-
                 </div>
 
                 <!-- Three columns displaying user created projects -->
                 <div class="pr-projects">
                     <div class="row">
                         <div class="col-md-4">
+                            <div class="card">
 
+                                <!-- Card image -->
+                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+
+                                <!-- Card content -->
+                                <div class="card-body">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><a>Card title</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <!-- Button -->
+                                    <a href="#" class="btn btn-primary">Button</a>
+
+                                </div>
+
+                            </div>
                         </div>
                         <div class="col-md-4">
+                            <div class="card">
 
+                                <!-- Card image -->
+                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+
+                                <!-- Card content -->
+                                <div class="card-body">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><a>Card title</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <!-- Button -->
+                                    <a href="#" class="btn btn-primary">Button</a>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+
+                                <!-- Card image -->
+                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+
+                                <!-- Card content -->
+                                <div class="card-body">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><a>Card title</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <!-- Button -->
+                                    <a href="#" class="btn btn-primary">Button</a>
+
+                                </div>
+
+                            </div>
                         </div>
 
                     </div>

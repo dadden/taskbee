@@ -1,6 +1,7 @@
 <?php
 /**
-* Processing of the information sent from index.php
+* Processing of the files and information
+* from new_project.php
 *
 * PHP version 5
 * @category   TaskBee

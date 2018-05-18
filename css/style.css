@@ -218,6 +218,14 @@ header .active {
 
 }
 
+/* FAQ */
+
+.faq {
+    max-width: 500px;
+    height: 300px;
+    margin: 0 auto;
+}
+
 /* PROJECTS.PHP */
 
 /* PROFILE.PHP */
@@ -250,9 +258,12 @@ header .active {
     border-radius: 30px;
 }
 .pr-projects {
-    max-width: 500px;
+    max-width: 800px;
     max-height: 800px;
     margin: 0 auto;
+}
+table {
+    table-layout: fixed;
 }
 
 

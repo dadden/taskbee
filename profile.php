@@ -48,7 +48,7 @@
                         ?></h1>
                     </div>
                     <div class="banner-btns-square">
-                        <a href="profile_settings.php">
+                        <a href="profile-settings.php">
                             <button class="btn-square" id="settings"><i class="fas fa-cog"></i></button>
                         </a>
                         <a href="new_project.php">

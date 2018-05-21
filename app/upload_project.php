@@ -64,18 +64,18 @@ if (isset($_POST["new-project"])) {
                     $fileDestination = '../uploads/' . $fileNameNew;
                     move_uploaded_file($fileTmpName, $fileDestination);
                     echo "<p>Project successfully uploaded. Redirecting to profile...</p>";
-                    header("Refresh:2;url=../profile.php");
+
                 } else {
                     echo "<p>File file size for your image is too big. $fileSize (Maximum 2MB)</p>";
-                    header("Refresh:2;url=../profile.php");
+
                 }
             } else {
                 echo "<p>There was an error while uploading the file. $fileError</p>";
-                header("Refresh:2;url=../profile.php");
+
             }
         } else {
             echo "<p>You cannot upload files of this type! $fileActualExt</p>";
-            header("Refresh:2;url=../profile.php");
+
         }
     }
 
@@ -102,18 +102,18 @@ if (isset($_POST["new-project"])) {
                     $tfileDestination = '../uploads/' . $tfileNameNew;
                     move_uploaded_file($tfileTmpName, $tfileDestination);
                     echo "<p>Project successfully uploaded. Redirecting to profile...</p>";
-                    header("Refresh:2;url=../profile.php");
+
                 } else {
                     echo "<p>File file size for your thumbnail is too big. $tfileSize (Maximum 1MB)</p>";
-                    header("Refresh:2;url=../profile.php");
+
                 }
             } else {
                 echo "<p>There was an error while uploading the file. $tfileError</p>";
-                header("Refresh:2;url=../profile.php");
+
             }
         } else {
             echo "<p>You cannot upload files of this type! $tfileActualExt</p>";
-            header("Refresh:2;url=../profile.php");
+
         }
     }
 
@@ -140,18 +140,17 @@ if (isset($_POST["new-project"])) {
                     $pfileDestination = '../uploads/' . $pfileNameNew;
                     move_uploaded_file($pfileTmpName, $pfileDestination);
                     echo "<p>Project successfully uploaded. Redirecting to profile...</p>";
-                    header("Refresh:2;url=../profile.php");
+
                 } else {
                     echo "<p>File file size for your project is too big. $pfileSize (Maximum 15MB)</p>";
-                    header("Refresh:2;url=../profile.php");
+
                 }
             } else {
                 echo "<p>There was an error while uploading the file. $pfileError</p>";
-                header("Refresh:2;url=../profile.php");
+
             }
         } else {
             echo "<p>You cannot upload files of this type! $pfileActualExt</p>";
-            header("Refresh:2;url=../profile.php");
         }
     }
 
@@ -159,11 +158,15 @@ if (isset($_POST["new-project"])) {
     $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
     $desc = filter_input(INPUT_POST, "desc", FILTER_SANITIZE_STRING);
     $user = filter_input(INPUT_POST, "user", FILTER_SANITIZE_STRING);
+    $visibility = filter_input(INPUT_POST, "visibility", FILTER_SANITIZE_STRING);
+
+    // Convert the visibility variable to boolean to store in database
+    $visibilityBoolean = ($visibility) ? true : false;
 
     // Check for input data and execute in database
     if ($user && $name && $desc){
-        $sql = "INSERT INTO tb_projects (user, name, description, thumb, image, zip) VALUES ('$user', '$name', '$desc', '$tfileDestination', '$fileDestination', '$pfileDestination')";
-        echo $sql;
+        $sql = "INSERT INTO tb_projects (user, name, description, thumb, image, zip, public) VALUES ('$user', '$name', '$desc', '$tfileDestination', '$fileDestination', '$pfileDestination', '$visibilityBoolean')";
+        echo "$sql $visibility $visibilityBoolean";
         // Run SQL
         $result = $conn->query($sql);
         //Display an error if SQL failed
@@ -173,6 +176,7 @@ if (isset($_POST["new-project"])) {
         // Shut down connection
         $conn->close();
         echo "<p>Project uploaded successfully. Redirecting to profile...</p>";
+        header ("refresh:2;url=../profile.php");
 
 
 

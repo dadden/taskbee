@@ -54,63 +54,62 @@
                 </div>
 
                 <div class="faq">
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Is registreation required? <i class="fas fa-angle-down"></i></a>
-                </h4>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                Yes. You need to create an account to upload projects and rate others. But it's <em>free</em> and only takes a few seconds.
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Is registreation required? <i class="fas fa-angle-down"></i></a></h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    Yes. You need to create an account to upload projects and rate others. But it's <em>free</em> and only takes a few seconds.
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">How does the rating system work? <i class="fas fa-angle-down"></i></a>
                 </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                When you upload a public project you can get it rated by other members. It will be rated from 1 to 5 stars. All ratings are anonymous.
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    When you upload a public project you can get it rated by other members. It will be rated from 1 to 5 stars. All ratings are anonymous.
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">How big can my project files be? <i class="fas fa-angle-down"></i></a>
                 </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                Images (thumbnail and slides) can be a maximum of 1MB. Your project file (zip/rar) can be a maximum of 15MB.
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    Images (thumbnail and slides) can be a maximum of 1MB. Your project file (zip/rar) can be a maximum of 15MB.
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">I forgot my password, what now? <i class="fas fa-angle-down"></i></a>
                 </h4>
-                        </div>
-                        <div id="collapseFour" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                If you lost your password you can recover it my clicking <a href="recover_password.php">HERE</a>. <br>
-                                You will recieve an email to the address linked to your account containing a new password for your account. We strongly recommend you change it when you first login with the new password.
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    If you lost your password you can recover it my clicking <a href="recover_password.php">HERE</a>.
+                                    <br> You will recieve an email to the address linked to your account containing a new password for your account. We strongly recommend you change it when you first login with the new password.
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
 
             </main>
@@ -120,13 +119,13 @@
                     © 2018 Copyright David Mohlén
                 </div>
             </footer>
-            </div>
-            <!-- Bootstrap, JQuery, Popper, MD, Checkpass -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-            <script src="js/menu.js"></script>
-            <script src="app/resources/mdb.min.js"></script>
+        </div>
+        <!-- Bootstrap, JQuery, Popper, MD, Checkpass -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script src="js/menu.js"></script>
+        <script src="app/resources/mdb.min.js"></script>
     </body>
 
     </html>

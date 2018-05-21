@@ -2,11 +2,12 @@
     session_start();
     if (!isset($_SESSION["user"])) {
         $_SESSION["loggedin"] = false;
-        header("Location: login.php");
+        //header("Location: login.php");
     }
+    include "app/conf/conf_db.php";
     include "app/applogin.php";
     ?>
-<!DOCTYPE html>
+    <!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -29,8 +30,8 @@
                     <ul id="toggled">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="frequently-asked-questions.php">FAQ</a></li>
-                        <li class="active"><a href="projects.php">Projects</a></li>
-                        <li class="drop-down"><a href="profile.php">Profile <i class="fas fa-user"></i></a></li>
+                        <li><a href="projects.php">Projects</a></li>
+                        <li class="drop-down active"><a href="profile.php">Profile <i class="fas fa-user"></i></a></li>
                         <li><a href="app/logout.php">Logout <i class="fas fa-sign-out-alt"></i></a></li>
                     </ul>
                 </nav>
@@ -41,11 +42,22 @@
                 <!-- Banner -->
                 <div class="banner-subpage">
                     <div class="banner-text">
-                        <h1>Public community projects</h1>
+                        <h1><?php
+                        // Display username in subpage banner
+                        echo $_SESSION["user"];
+                        ?></h1>
+                    </div>
+                    <div class="banner-btns-square">
+                        <a href="profile_settings.php">
+                            <button class="btn-square" id="settings"><i class="fas fa-cog"></i></button>
+                        </a>
+                        <a href="new_project.php">
+                            <button class="btn-square" id="new"><i class="fas fa-plus"></i></button>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Table displaying public user created projects -->
+                <!-- Table displaying user created projects -->
                 <?php
 
                 include "app/conf/conf_db.php";
@@ -59,7 +71,7 @@
                 }
 
                 // Search the table tb_projects for projects linked to the user
-                $sql = "SELECT * FROM tb_projects WHERE public = '0'";
+                $sql = "SELECT * FROM tb_projects WHERE user = '{$_SESSION["user"]}'";
 
                 // Run SQL
                 $query = mysqli_query($conn, $sql);
@@ -70,48 +82,7 @@
                 }
 
                 ?>
-                <div class="pr-projects">
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Preview</th>
-                                <th scope="col">Author</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Rating</th>
-                                <th scope="col">View</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-
-                            while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
-
-                                // Print table
-                                echo '<tr>
-                                <td><img src="uploads/'.$row['thumb'].'"></td>
-                                <td>'.$row['user'].'</td>
-                                <td>'.$row['name'].'</td>
-                                <td>'.$row['description'].'</td>
-                                <td>0</td>
-                                <td><button class="btn-table">View</button></td>
-                                </tr>';
-
-
-                            }
-                            // Shut down connection
-                            $conn->close();
-                            ?>
-                            <!--<tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td><button class="btn-standard">View</button></td>
-                            </tr>-->
-                        </tbody>
-                    </table>
-                </div>
+                <h2>Profile settings</h2>
 
 
             </main>

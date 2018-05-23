@@ -2,7 +2,7 @@
     session_start();
     if (!isset($_SESSION["user"])) {
         $_SESSION["loggedin"] = false;
-        //header("Location: login.php");
+        header("Location: login.php");
     }
     include "app/conf/conf_db.php";
     include "app/applogin.php";

@@ -2,7 +2,6 @@
     session_start();
     if (!isset($_SESSION["user"])) {
         $_SESSION["loggedin"] = false;
-        header("Location: login.php");
     }
     include "app/applogin.php";
     ?>

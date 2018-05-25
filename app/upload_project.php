@@ -173,6 +173,9 @@ if (isset($_POST["new-project"])) {
         if (!$result) {
             die("<p>An error occurred</p>");
         }
+
+        // Create unique page for project
+
         // Shut down connection
         $conn->close();
         echo "<p>Project uploaded successfully. Redirecting to profile...</p>";

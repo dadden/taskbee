@@ -1,9 +1,5 @@
 <?php
     session_start();
-    if (!isset($_SESSION["user"])) {
-        $_SESSION["loggedin"] = false;
-    }
-    include "app/applogin.php";
     ?>
 <!DOCTYPE html>
     <html lang="en">
@@ -25,13 +21,20 @@
                 <a href="index.php"><img src="img/logo.png" alt="TaskBee logo" class="logo"></a>
                 <nav>
                     <a href="#" id="menu-toggle">&#9776</a>
-                    <ul id="toggled">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="frequently-asked-questions.php">FAQ</a></li>
-                        <li class="active"><a href="projects.php">Projects</a></li>
-                        <li class="drop-down"><a href="profile.php">Profile <i class="fas fa-user"></i></a></li>
-                        <li><a href="app/logout.php">Logout <i class="fas fa-sign-out-alt"></i></a></li>
-                    </ul>
+                <ul id="toggled">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="frequently-asked-questions.php">FAQ</a></li>
+                    <li class="active"><a href="projects.php">Projects</a></li>
+                    <?php
+                    if (isset($_SESSION["user"])){
+                        echo "<li><a href=\"profile.php\">Profile <i class=\"fas fa-user\"></i></a></li>";
+                        echo "<li><a href=\"app/logout.php\">Logout <i class=\"fas fa-sign-out-alt\"></i></a></li>";
+                    } else {
+                        echo "<li><a href=\"login.php\">Login <i class=\"fas fa-lock\"></i></a></li>";
+                    }
+
+                    ?>
+                </ul>
                 </nav>
             </header>
 
